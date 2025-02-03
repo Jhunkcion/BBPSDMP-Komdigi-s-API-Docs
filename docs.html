@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DTS API Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="branding">
+            <div id="branding">
+                <img src="assets/logoKomdigi.png" class="icon" alt="icon">
+            </div>
+            <div id="nav">
+                <nav>
+                    <h1>API Documentation</h1>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>Welcome to the API documentation. Here you will find all the information you need to interact with our API.</p>
+        </section>
+
+        <section id="authentication">
+            <h2>Authentication</h2>
+            <p>To use our API, you need to authenticate using an API key. You can obtain an API key by signing up on our website.</p>
+        </section>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Search for methods...">
+        </div>
+
+        <section id="summary">
+            <h2>Method Counter</h2>
+            <p>Jumlah metode dalam API ini:</p>
+            <div class="counter-container">
+                <div class="counter-card">
+                    <span class="method-title post">POST</span>
+                    <i class="fas fa-plus-circle method-icon post"></i>
+                    <span class="counter" id="count-post" data-target="0">0</span>
+                </div>
+                <div class="counter-card">
+                    <span class="method-title get">GET</span>
+                    <i class="fas fa-download method-icon get"></i>
+                    <span class="counter" id="count-get" data-target="0">0</span>
+                </div>
+                <div class="counter-card">
+                    <span class="method-title put">PUT</span>
+                    <i class="fas fa-edit method-icon put"></i>
+                    <span class="counter" id="count-put" data-target="0">0</span>
+                </div>
+                <div class="counter-card">
+                    <span class="method-title delete">DELETE</span>
+                    <i class="fas fa-trash method-icon delete"></i>
+                    <span class="counter" id="count-delete" data-target="0">0</span>
+                </div>
+                <div class="counter-card">
+                    <span class="method-title use">USE</span>
+                    <i class="fas fa-cogs method-icon use"></i>
+                    <span class="counter" id="count-use" data-target="0">0</span>
+                </div>
+            </div>
+        </section>        
+
+
+        <section id="endpoints">
+            <h2>Endpoints</h2>
+        
+            <div class="grid-container">
+
+                <!-- User Login -->
+                <div class="card">
+                    <h3>User Login</h3>
+                    <div class="dropdown">
+                        <span class="method-post">POST</span> /api/login
+                        <div class="dropdown-content">
+                            <div class="api-description"> User Login</div>
+                            <div class="parameters">Parameter: <br>
+                                {<br>
+                                "email": "string",<br>
+                                "password": "string",<br>
+                                "turnstileToken": "string"<br>
+                                }</div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-post">POST</span> /api/auth/check
+                        <div class="dropdown-content">
+                            <div class="api-description">Check User Login</div>
+                            <div class="parameters">Tidak ada parameter yang diperlukan.</div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/logout
+                        <div class="dropdown-content">
+                            <div class="api-description">User Logout</div>
+                            <div class="parameters">Tidak ada parameter yang diperlukan.</div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Dashboard -->
+                <div class="card">
+                    <h3>Profile</h3>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/profile
+                        <div class="dropdown-content">
+                            <div class="api-description"> Mengambil data profile user. </div>
+                            <div class="parameters">Tidak ada parameter yang diperlukan.</div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-put">PUT</span> /api/profile
+                        <div class="dropdown-content">
+                            <div class="api-description">Update infomasi profile user yang telah ada.</div>
+                            <div class="parameters">      
+                                 Parameter: <br>
+                                {<br>
+                                "name"      : "string",<br>
+                                "email"     : "string",<br>
+                                "phone"     : "string",<br>
+                                "password"  : "string"<br>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Users -->
+                <div class="card">
+                    <h3>Data Users</h3>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/users
+                        <div class="dropdown-content">
+                            <div class="api-description">Menangmbil data user.</div>
+                            <div class="parameters">Tidak ada parameter yang diperlukan.</div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/users/my-assignments
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengmbil data penugasan milik user.</div>
+                            <div class="parameters">Tidak ada parameter yang diperlukan.</div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-post">POST</span> /api/users
+                        <div class="dropdown-content">
+                            <div class="api-description">Menambah User baru.</div>
+                            <div class="parameters">     
+                            Parameter: <br>
+                            {<br>
+                            "name"      : "string",<br>
+                            "email"     : "string",<br>
+                            "phone"     : "string",<br>
+                            "role"      : "string",<br>
+                            "nipnik"    : "string",<br>
+                            "password"  : "string"<br>
+                            }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-put">PUT</span> /api/users/:id
+                        <div class="dropdown-content">
+                            <div class="api-description">Update data User yang telah ada.</div>
+                            <div class="parameters">     
+                            Parameter: <br>
+                            {<br>
+                            "name"      : "string",<br>
+                            "email"     : "string",<br>
+                            "phone"     : "string",<br>
+                            "role"      : "string",<br>
+                            "nipnik"    : "string",<br>
+                            "password"  : "string"<br>
+                            }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-delete">DELETE</span> /api/users
+                        <div class="dropdown-content">
+                            <div class="api-description">Menghapus data User.</div>
+                            <div class="parameters">Tidak ada parameter yang diperlukan.</div>     
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-post">POST</span> /api/users/:id/generate-password
+                        <div class="dropdown-content">
+                            <div class="api-description">Generate password untuk user.</div>
+                            <div class="parameters">     
+                            Parameter: <br>
+                            { <br>
+                            "password": "generatePassword" <br>
+                            }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- 2nd Row -->
+                <!-- Metode Pelatihan -->
+                <div class="card">
+                    <h3>Metode Pelatihan</h3>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/methods
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil data pelatihan.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-post">POST</span> /api/methods
+                        <div class="dropdown-content">
+                            <div class="api-description">Menambah metode pelatihan baru.</div>
+                            <div class="parameters">     
+                            Parameter: <br>
+                            { <br>
+                            "name" : "string", <br>
+                            "description" : "string" <br>
+                            }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-put">PUT</span> /api/methods/:id
+                        <div class="dropdown-content">
+                            <div class="api-description">Update data metode pelatihan yang telah ada.</div>
+                            <div class="parameters">     
+                            Parameter: <br>
+                            {<br>
+                            "name" : "string", <br>
+                            "description" : "string"<br>
+                            }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-delete">DELETE</span> /api/methods/:id
+                        <div class="dropdown-content">
+                            <div class="api-description"> Menghapus data metode pelatihan.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Data Provinsi -->
+                <div class="card">
+                    <h3>Data Provinsi</h3>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/provinces
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil data provinsi.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-post">POST</span> /api/provinces
+                        <div class="dropdown-content">
+                            <div class="api-description">Menambahkan data provinsi baru.</div>
+                            <div class="parameters">     
+                            Parameter: <br>
+                            {<br>
+                            "name": "string", <br>
+                            "kode_kemendagri": "string" <br>
+                            }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-put">PUT</span> /api/provinces/:id
+                        <div class="dropdown-content">
+                            <div class="api-description">Update data provinsi yang telah ada.</div>
+                            <div class="parameters">     
+                            Parameter: <br>
+                            {<br>
+                            "name": "string", <br>
+                            "kode_kemendagri": "string" <br>
+                            }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-delete">DELETE</span> /api/provinces/:id
+                        <div class="dropdown-content">
+                            <div class="api-description">Menghapus data provinsi.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Data Kota -->
+                <div class="card">
+                    <h3>Data Kota</h3>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/cities
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil data kota.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-post">POST</span> /api/cities
+                        <div class="dropdown-content">
+                            <div class="api-description">Menambah data kota baru.</div>
+                            <div class="parameters">     
+                            Parameter: <br>
+                            {<br>
+                            "name": "string", <br>
+                            "type": "string", <br>
+                            "kode_kemendagri": "string", <br>
+                            "province_id": "integer" <br>
+                            }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-put">PUT</span> /api/cities/:id
+                        <div class="dropdown-content">
+                            <div class="api-description">Update data kota yang telah ada.</div>
+                            <div class="parameters">     
+                            Parameter: <br>
+                            {<br>
+                            "name": "string", <br>
+                            "type": "string", <br>
+                            "kode_kemendagri": "string", <br>
+                            "province_id": "integer" <br>
+                            }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-delete">DELETE</span> /api/cities/:id
+                        <div class="dropdown-content">
+                            <div class="api-description">Menghapus data kota.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!--3rd Row-->
+                <!-- Data Akademi -->
+                <div class="card">
+                    <h3>Data Akademi</h3>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/academies
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil data akademi.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-post">POST</span> /api/academies
+                        <div class="dropdown-content">
+                            <div class="api-description">Menambah data akademi baru.</div>
+                            <div class="parameters">     
+                            Parameter: <br>
+                            { <br>
+                            "name" : "string", <br>
+                            "themes" : "string" <br>
+                            }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-put">PUT</span> /api/academies/:id
+                        <div class="dropdown-content">
+                            <div class="api-description">Update data akademi yang telah ada.</div>
+                            <div class="parameters">     
+                            Parameter: <br>
+                            {<br>
+                            "name" : "string", <br>
+                            "themes" : "string"<br>
+                            }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-delete">DELETE</span> /api/academies/:id
+                        <div class="dropdown-content">
+                            <div class="api-description">Menghapus data akademi.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Data Pegawai -->
+                <div class="card">
+                    <h3>Data Pegawai</h3>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/users/internal
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil data pegawai internal.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span>/api/users/internal/filter-options
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil data pegawai internal sesuai filter yang dipilih.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span>/api/users/internal/assignments
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil data penugasan pegawai internal.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span>/api/users/internal/detailed-assignments
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil data penugasan pegawai internal secara lebih detail.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/users/external
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil data pegawai eksternal.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/users/external/:id
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil data pegawai eksternal berdasarkan id.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Elligible User -->
+                <div class="card">
+                    <h3>Check Pegawai Elligible</h3>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/users/committee-eligible
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil data pegawai yang eligible.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/schedule-themes/:id/eligible-users
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil data pegawai yang eligible berdasarkan tema.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/users/:id/themes
+                        <div class="dropdown-content">
+                            <div class="api-description">Update tema yang dipilih oleh pegawai.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Get Loc (Province & City) -->
+                <div class="card">
+                    <h3>Menampilkan Data Lokasi</h3>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/locations
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil data Kota untuk ditampilkan.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/provinces
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil data Provinsi untuk ditampilkan.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Schedule -->
+                <div class="card">
+                    <h3>Data Jadwal</h3>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/schedules/:id
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil data jadwal berdasarkan id.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/schedules
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil data jadwal.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-post">POST</span> /api/schedules
+                        <div class="dropdown-content">
+                            <div class="api-description">Menambah data jadwal baru.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-put">PUT</span> /api/schedules/:id
+                        <div class="dropdown-content">
+                            <div class="api-description">Update data jadwal yang telah ada.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-delete">DELETE</span> /api/schedules/:id
+                        <div class="dropdown-content">
+                            <div class="api-description">Menghapus data jadwal.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/jadwal/internal
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil Data Jadwal Untuk Pegawai Internal.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Get Loc (Province & City) -->
+                <div class="card">
+                    <h3>Menampilkan Data Lokasi</h3>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/locations
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil data Kota untuk ditampilkan.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/provinces
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil data Provinsi untuk ditampilkan.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dashboard -->
+                <div class="card">
+                    <h3>Menampilkan Statistik Pada Dashboard</h3>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/dashboard
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil Data Dashboard Untuk Ditampilkan.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- assignment -->
+                <div class="card">
+                    <h3>Data Penugasan</h3>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/assignments
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil Data Penugasan.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-post">POST</span> /api/assignments
+                        <div class="dropdown-content">
+                            <div class="api-description">Menambah data penugasan baru.</div>
+                            <div class="parameters">     
+                                Parameter: <br>
+                                {<br>
+                                    "schedule_id" : "string"; <br>
+                                    "instructor_data" : "string"; <br>
+                                    "committee-members" : "string"; <br>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-post">POST</span> /api/assignments/generate-pdf
+                        <div class="dropdown-content">
+                            <div class="api-description">Meng-generate/Membuat PDF untuk Kehadiran.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-put">PUT</span> /api/assignments/:scheduleId
+                        <div class="dropdown-content">
+                            <div class="api-description">Update data penugasan yang ada.</div>
+                            <div class="parameters">     
+                                Tidak ada parameter yand diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-delete">DELETE</span> /api/assignments/:scheduleId
+                        <div class="dropdown-content">
+                            <div class="api-description">Menghapus Data Penugasan Yang Dipilih.</div>
+                            <div class="parameters">     
+                                Tidak ada parameter yand diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Themes Data -->
+                <div class="card">
+                    <h3>Data Tema</h3>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/themes/all
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil Semua Data Tema.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/users/instructor-themes
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil Data Tema Instruktur.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/instructors/certified
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil Data Instruktur Yang ter-verifikasi.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/users/instructor-assignments
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil Data Penugasan Instruktur.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/users/instructor-assignments/detailed
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil Data Penugasan Instruktur Secara Lebih Detail.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instructor Data -->
+                <div class="card">
+                    <h3>Data Instruktur</h3>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/users/instructors
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil Data Instruktur.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/users/instructor-themes
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil Data Tema Instruktur.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/instructors/certified
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil Data Instruktur Yang ter-verifikasi.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/users/instructor-assignments
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil Data Penugasan Instruktur.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/users/instructor-assignments/detailed
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil Data Penugasan Instruktur Secara Lebih Detail.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Kedinasan -->
+                <div class="card">
+                    <h3>Data Kedinasan Keluar</h3>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/dinas-luar
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil Data Kedinasan Keluaran.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/dinas-luar/:id
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil Data Kedinasan Keluar Berdasarkan ID (single).</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/dinas-luar/user/:userId
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil Data Pegawai Yang Kedinasan Keluar Berdasarkan ID.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-post">POST</span> /api/dinas-luar
+                        <div class="dropdown-content">
+                            <div class="api-description">Menambah Data Kegiatan Dinas Keluar Baru.</div>
+                            <div class="parameters">     
+                                Parameter : { <br>
+                                    "name": "string" <br>
+                                    "start_date" : "string" <br>
+                                    "end_date" : "string" <br>
+                                    "location_id" : "string" <br>
+                                    "user_ids" : "string" <br>
+                                }
+                            </div> d
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-put">PUT</span> /api/dinas-luar/:id
+                        <div class="dropdown-content">
+                            <div class="api-description">Update Data Kegiatan Dinas Kegiatan Dinas Keluar Yang Dipilih.</div>
+                            <div class="parameters">     
+                                Parameter : { <br>
+                                    "name": "string" <br>
+                                    "start_date" : "string" <br>
+                                    "end_date" : "string" <br>
+                                    "location_id" : "string" <br>
+                                    "user_ids" : "string" <br>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-delete">DELETE</span> /api/dinas-luar/user/:userId
+                        <div class="dropdown-content">
+                            <div class="api-description">Menghapus Data Kegiatan Dinas Keluar yang Dipilih.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kehadiran -->
+                <div class="card">
+                    <h3>Kehadiran</h3>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/kehadiran
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil Data Kehadiran.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/kehadiran/summary
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil Data Summary Kehadiran.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/kehadiran/periods
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil Data Periode Kehadiran (annual).</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/kehadiran/individual
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil Data Kehadiran Pegawai.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-post">POST</span> /api/kehadiran/import
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengimport Data Kehadiran.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-post">POST</span> /api/kehadiran/generate-pdf-link
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengenerate/Membuat PDF untuk Kehadiran.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WhatsApp -->
+                <div class="card">
+                    <h3>WhatsApp</h3>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/whatsapp/status
+                        <div class="dropdown-content">
+                            <div class="api-description">Check Status WhatsApp API.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/queue/stats
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil data statistik antrian whatsapp.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/whatsapp/history
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil riwayat whatsapp.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/whatsapp/user/info
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil informasi dari user whatsapp.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/whatsapp/user/avatar
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil informasi foto profil dari user whatsapp.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/whatsapp/groups/db
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil data group whatsapp.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/whatsapp/groups/refresh
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengambil dan refresh data group whatsapp.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/whatsapp/login
+                        <div class="dropdown-content">
+                            <div class="api-description">Login ke WhatsApp.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/whatsapp/login-with-code
+                        <div class="dropdown-content">
+                            <div class="api-description">Login ke WhatsApp melalui QR Code.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-get">GET</span> /api/whatsapp/logout
+                        <div class="dropdown-content">
+                            <div class="api-description">Logout WhatsApp API.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-post">POST</span> /api/whatsapp/reconnect
+                        <div class="dropdown-content">
+                            <div class="api-description">Reconnect WhatsApp API.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-use">USE</span> /upload
+                        <div class="dropdown-content">
+                            <div class="api-description">Upload ke WhatsApp.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-post">POST</span> /api/send-whatsapp
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengirim pesan ke WhatsApp melalui API Fonnte.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yag diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-post">POST</span> /api/whatsapp/send/message
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengirim pesan ke WhatsApp melalui site.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yag diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-post">POST</span> /api/whatsapp/send/image
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengirim pesan berupa gambar ke WhatsApp melalui site.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yag diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-post">POST</span> /api/whatsapp/send/file
+                        <div class="dropdown-content">
+                            <div class="api-description">Mengirim pesan berupa file ke WhatsApp melalui site.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yag diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-post">POST</span> /api/whatsapp/groups/create
+                        <div class="dropdown-content">
+                            <div class="api-description">Membuat group whatsapp.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-post">POST</span> /api/whatsapp/groups/promote
+                        <div class="dropdown-content">
+                            <div class="api-description">Promote status member group whatsapp.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-post">POST</span> /api/whatsapp/groups/demote
+                        <div class="dropdown-content">
+                            <div class="api-description">Demote status member group whatsapp.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span class="method-post">POST</span> /api/whatsapp/groups/remove
+                        <div class="dropdown-content">
+                            <div class="api-description">Menghapus/Kick member dari group whatsapp.</div>
+                            <div class="parameters">     
+                            Tidak ada parameter yang diperlukan.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        
+    </div>
+
+    <footer>
+        <p>API Documentation &copy; 2023</p>
+    </footer>
+
+    <script>
+         document.querySelectorAll('.dropdown').forEach(dropdown => {
+            dropdown.addEventListener('click', function () {
+                this.classList.toggle('open'); // Tambah/hapus class 'open' untuk membuka/menutup dropdown
+            });
+        });
+
+        function countMethods() {
+            let methodCounts = { POST: 0, GET: 0, PUT: 0, DELETE: 0, USE: 0 };
+
+            // Hitung jumlah setiap metode berdasarkan elemen yang ada
+            document.querySelectorAll('.method-post').forEach(() => methodCounts.POST++);
+            document.querySelectorAll('.method-get').forEach(() => methodCounts.GET++);
+            document.querySelectorAll('.method-put').forEach(() => methodCounts.PUT++);
+            document.querySelectorAll('.method-delete').forEach(() => methodCounts.DELETE++);
+            document.querySelectorAll('.method-use').forEach(() => methodCounts.USE++);
+
+            // Update data-target untuk animasi
+            document.getElementById("count-post").setAttribute("data-target", methodCounts.POST);
+            document.getElementById("count-get").setAttribute("data-target", methodCounts.GET);
+            document.getElementById("count-put").setAttribute("data-target", methodCounts.PUT);
+            document.getElementById("count-delete").setAttribute("data-target", methodCounts.DELETE);
+            document.getElementById("count-use").setAttribute("data-target", methodCounts.USE);
+
+            // Jalankan animasi counter
+            animateCounters();
+        }
+
+        function animateCounters() {
+            const counters = document.querySelectorAll(".counter");
+
+            counters.forEach(counter => {
+                counter.innerText = "0";
+                const target = +counter.getAttribute("data-target");
+                const increment = target / 50; 
+
+                const updateCounter = () => {
+                    const count = +counter.innerText;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(updateCounter, 50);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+
+                updateCounter();
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", countMethods);
+
+        document.getElementById('search').addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const apiMethods = document.querySelectorAll('.card');
+
+        apiMethods.forEach(method => {
+            const methodName = method.querySelector('h3').innerText.toLowerCase();
+            if (methodName.includes(searchTerm)) {
+                method.style.display = 'block';
+            } else {
+                method.style.display = 'none';
+            }
+        });
+    });
+    </script>    
+</body>
+</html>  

@@ -1,0 +1,341 @@
+/* Global Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding-top: 80px;
+    background-color: #f9f9f9;
+    color: #333; 
+}
+
+
+.container {
+    padding-top: 20px;
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    background: #fff; 
+    color: #333; 
+    padding: 10px 0;
+    border-bottom: 3px solid #007bff; 
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+}
+
+/* Branding dan Logo */
+header .branding {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    padding-left: 20px;
+    width: 250px;
+    height: auto;
+    margin-right: 20px;
+}
+
+/* Teks Navigasi */
+header #nav {
+    text-align: right;
+}
+
+header nav h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #007bff; 
+    font-weight: bold;
+}
+
+/* Section */
+section {
+    padding: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background: linear-gradient(to right, #ffffff, #f8f8f8); 
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Counter */
+#summary {
+    text-align: center;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 700px;
+    color: #333; 
+}
+
+/* Grid Container */
+.counter-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Box Counter */
+.counter-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.counter-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Judul Metode */
+.method-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Ikon */
+.method-icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #007bff; 
+}
+
+/* Warna Spesifik */
+.post { color: #16a34a; }  
+.get { color: #2563eb; }  
+.put { color: #eab308; }  
+.delete { color: #dc2626; } 
+.use { color: #d97706; }   
+
+/* Counter Angka */
+.counter {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333; 
+}
+
+/* Responsif */
+@media (max-width: 480px) {
+    .counter-card {
+        padding: 12px;
+    }
+
+    .method-icon {
+        font-size: 24px;
+    }
+
+    .counter {
+        font-size: 18px;
+    }
+}
+
+/* Footer */
+footer {
+    background: #007bff;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 30px;
+    background: linear-gradient(to right, #007bff, #0056b3);
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Grid untuk tampilan responsive */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 15px 0;
+        height: 80px;
+    }
+
+    .icon {
+        width: 100px;
+    }
+
+    header nav h1 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 10px 0;
+        height: 70px;
+    }
+
+    .icon {
+        width: 80px;
+    }
+
+    header nav h1 {
+        font-size: 18px;
+    }
+}
+
+/* Card Styling */
+.card {
+    background: white;
+    color: black;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    text-align: center;
+    margin-top: 0;
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+}
+
+/* Dropdown Styling */
+.dropdown {
+    margin-top: 10px;
+    padding: 10px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.dropdown.open .dropdown-content {
+    display: block;
+    opacity: 1;
+}
+
+/* Deskripsi API dan Parameter */
+.api-description {
+    margin-top: 15px;
+    border: 3.5px solid #007bff;
+    border-radius: 5px;
+}
+
+.parameters  {
+    margin-top: 15px;
+    border: 3.5px solid #007bff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Metode GET, POST, PUT, DELETE, USE */
+.method-get,
+.method-post,
+.method-put,
+.method-delete,
+.method-use {
+    text-align: center;
+    display: inline-block;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 15%;
+}
+
+.method-get {
+    background: #007bff;
+}
+
+.method-post {
+    background: #2aa51c;
+}
+
+.method-put {
+    background: #e1a50e;
+}
+
+.method-delete {
+    background: #d9534f;
+}
+
+.method-use{
+    background: rgb(194, 194, 55);
+}
+
+/* Add some basic styling for the search bar */
+/* Styling Search Container */
+.search-container {
+    margin: 20px auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+/* Styling Search Box */
+#search {
+    width: 100%;
+    max-width: 350px;
+    padding: 12px 15px;
+    border: 2px solid #007BFF;
+    border-radius: 25px; 
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+
+#search:focus {
+    border-color: #0056b3;
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0, 91, 187, 0.3); 
+}
+
+/* Placeholder */
+#search::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+
+@media (max-width: 480px) {
+    #search {
+        width: 90%; 
+        font-size: 14px;
+    }
+}
